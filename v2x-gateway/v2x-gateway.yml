@@ -1,0 +1,53 @@
+eureka: 
+  instance: 
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+spring: 
+  mvc: 
+    view: 
+      prefix: /
+      suffix: .jsp
+  datasource: 
+    type: org.apache.commons.dbcp.BasicDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.1.4.175/method?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: cmcc1234
+  application: 
+    name: v2x-gateway
+  redis: 
+    host: 10.1.4.157
+    port: 16379
+    password: 123456
+mybatis: 
+  mapper-locations: classpath:com/cmcc/v2x/dso/gateway/mapper/*.xml
+  type-aliases-package: com.cmcc.v2x.dso.gateway.pojo
+feign: 
+  hystrix: 
+    enabled: true
+  httpclient: 
+    enabled: true
+  okhttp: 
+    enabled: false
+hystrix: 
+  threadpool: 
+    default: 
+      coreSize: 500
+      fallback: 
+        enabled: true
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 600000
+      requestVolumeThreshold: 3
+  command: 
+    default: 
+jwt: 
+  SecretKey: test
+  tokenTime: 100800
+logging: 
+  level: 
+    xatu.zsl: debug
+    org.springfromework.web: info
+    org.hibernate: error
+  file: /usr/local/v2x/log/v2x-gateway

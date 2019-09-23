@@ -1,0 +1,85 @@
+spring: 
+  redis: 
+    host: 10.1.4.157
+    port: 6379
+    password: 123456
+    maxTotal: 500
+    maxIdle: 50
+    maxWaitMillis: 5000
+    timeOut: 5000
+  rabbitmq: 
+    host: 10.1.4.190
+    port: 5672
+    username: admin
+    password: admin
+ribbon: 
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+zuul: 
+  sensitive-headers: Access-Control-Allow-Origin
+  ignored-headers: Access-Control-Allow-Origin,H-APP-Id,Token,APPToken
+  routes: 
+    api: 
+      path: /api/**
+      serviceId: v2x-userservice
+    realtimequery:
+      path: /realtimequery/**
+      serviceId: V2X-ServiceQuery-Realtime
+    queryonline:
+      path: /queryonline/**
+      serviceId: V2X-ServiceQuery-Online
+  ratelimit: 
+    enabled: true
+    repository: REDIS
+    default-policy: 
+      quota: 1
+      refresh-interval: 1
+      type: ORIGIN
+      limit: 5
+    policies: 
+      api: 
+        limit: 5000
+        quota: 1
+        refreshInterval: 1
+        type: URL
+      realtimequery:
+        limit: 5000
+        quota: 1
+        refreshInterval: 1
+        type: URL
+      queryonline:
+        limit: 5000
+        quota: 1
+        refreshInterval: 1
+        type: URL
+feign: 
+  hystrix: 
+    enabled: true
+  httpclient: 
+    enabled: true
+  okhttp: 
+    enabled: false
+hystrix: 
+  threadpool: 
+    default: 
+      coreSize: 500
+      fallback: 
+        enabled: true
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 2000
+      circuitBreaker: 
+        requestVolumeThreshold: 3
+eureka: 
+  instance: 
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+logging: 
+  file: /data/log/nohup.out
+jwt: 
+  secret: QAZ@WSX#EDC
+  issuer: JWT_ISSUER
+  timeout: 3600000
