@@ -20,6 +20,8 @@ spring:
 mybatis: 
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.cmcc.pojo
+jwt: 
+  appid : appid
 logging: 
   level: 
     xatu.zsl: debug
