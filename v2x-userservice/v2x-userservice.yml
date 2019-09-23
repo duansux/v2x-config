@@ -20,10 +20,6 @@ spring:
 mybatis: 
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.cmcc.pojo
-jwt: 
-  appid : appid
-  refreshtimeout: 600000
-  
 logging: 
   level: 
     xatu.zsl: debug
