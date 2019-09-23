@@ -10,15 +10,15 @@ spring:
   datasource: 
     type: org.apache.commons.dbcp.BasicDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.1.4.175/method?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1/method?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: cmcc1234
+    password: root
   application: 
     name: v2x-gateway
   redis: 
-    host: 10.1.4.157
-    port: 16379
-    password: 123456
+    host: 127.0.0.1
+    port: 6379
+    password: 
 mybatis: 
   mapper-locations: classpath:com/cmcc/v2x/dso/gateway/mapper/*.xml
   type-aliases-package: com.cmcc.v2x.dso.gateway.pojo
