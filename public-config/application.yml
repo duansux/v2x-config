@@ -1,0 +1,25 @@
+info: 
+  version: ${spring.application.name}-1.0
+  name: ${spring.application.name}
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: "*"
+  endpoint: 
+    health: 
+      show-details: always
+jwt: 
+  SecretKey: test
+  tokenTime: 100800
+  remembered: 100800
+  secret: QAZ@WSX#EDC
+  issuer: cmcc.iot.v2x.com
+  subject: <cmcc>@cmcc.iot.v2x.com
+  appid: app1
+  pem: loginlogin
+  alg: HS256
+  typ: JWT
+  refreshtimeout: 2592000000
+  signtimeout: 600000
+  threshold: 100
