@@ -22,6 +22,8 @@ mybatis:
   type-aliases-package: com.cmcc.pojo
 jwt: 
   appid : appid
+  refreshtimeout: 600000
+  
 logging: 
   level: 
     xatu.zsl: debug
