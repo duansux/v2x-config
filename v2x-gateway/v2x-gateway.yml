@@ -45,6 +45,7 @@ hystrix:
 jwt: 
   SecretKey: test
   tokenTime: 100800
+  appid : appid
 logging: 
   level: 
     xatu.zsl: debug
