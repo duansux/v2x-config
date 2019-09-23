@@ -3,9 +3,9 @@ eureka:
     preferIpAddress: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 redis: 
-  host: 10.1.4.157
+  host: 127.0.0.1
   port: 6379
-  password: 123456
+  password:
   maxTotal: 500
   maxIdle: 50
   maxWaitMillis: 5000
@@ -14,9 +14,9 @@ spring:
   datasource:
     #type: org.apache.commons.dbcp.BasicDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://10.1.4.175:3306/method?useSSL=false&ullNamePatternMatchesAll=true&amp;serverTimezone=GMT%2b8?useUnicode=true&characterEncoding=utf8
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/method?useSSL=false&ullNamePatternMatchesAll=true&amp;serverTimezone=GMT%2b8?useUnicode=true&characterEncoding=utf8
     username: root
-    password: cmcc1234
+    password: root
 mybatis: 
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.cmcc.pojo
