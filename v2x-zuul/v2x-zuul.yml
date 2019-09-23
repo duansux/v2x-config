@@ -1,17 +1,17 @@
 spring: 
   redis: 
-    host: 10.1.4.157
+    host: 127.0.0.1
     port: 6379
-    password: 123456
+    password: 
     maxTotal: 500
     maxIdle: 50
     maxWaitMillis: 5000
     timeOut: 5000
-  rabbitmq: 
-    host: 10.1.4.190
-    port: 5672
-    username: admin
-    password: admin
+#   rabbitmq: 
+#     host: 10.1.4.190
+#     port: 5672
+#     username: admin
+#     password: admin
 ribbon: 
   ConnectTimeout: 60000
   ReadTimeout: 60000
